@@ -1,0 +1,3 @@
+[build]
+publish = "."          # root folder
+command = ""           # no build step for now
