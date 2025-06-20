@@ -43,55 +43,44 @@ themeToggle.addEventListener('click', () => {
 /* ==== Current year in footer ==== */
 document.getElementById('curYear').textContent = new Date().getFullYear();
 
-/* ========= Prefill message & smooth-scroll (single, safe) ========= */
+/* ========= Choose-Plan autofill + social share ========= */
 document.addEventListener('DOMContentLoaded', () => {
-  const msgField  = document.getElementById('msgField');
-  const contactEl = document.getElementById('contact');
+
+  /* --- Autofill & smooth-scroll --- */
+  const msgBox   = document.getElementById('msgField');
+  const contact  = document.getElementById('contact');
 
   document.querySelectorAll('.choose-plan').forEach(btn => {
     btn.addEventListener('click', e => {
-      e.preventDefault();                                  // stop default jump
-      msgField.value = btn.dataset.msg;                    // fill textarea
-      contactEl.scrollIntoView({ behavior: 'smooth' });    // scroll nicely
-      msgField.focus({ preventScroll: true });             // cursor ready
+      e.preventDefault();                         // stop link jump
+      msgBox.value = btn.dataset.msg;             // preset text
+      contact.scrollIntoView({ behavior:'smooth'});
+      msgBox.focus({ preventScroll:true });
     });
   });
-});
 
-/* ========= Unified contact buttons ========= */
-const nameF = document.getElementById('nameField');
-const mailF = document.getElementById('emailField');
-const msgF  = document.getElementById('msgField');
+  /* --- Social / messenger deep-links --- */
+  const nameBox  = document.getElementById('nameField');
+  const emailBox = document.getElementById('emailField');
 
-const buildText = () =>
-  encodeURIComponent(
-    `Hi, my name is ${nameF.value.trim()}, my email is ${mailF.value.trim()}, and my message is ${msgF.value.trim()}.`
-  );
+  const phone  = '48788542112';   // digits only
+  const igUser = 'oitutor_wen';
 
-// ——— your phone & IG handle ———
-const PHONE   = '48788542112';   // digits only
-const IG_USER = 'oitutor_wen';   // instagram.com/oitutor_wen
-// ————————————————
+  const text = () =>
+    encodeURIComponent(
+      `Hi, my name is ${nameBox.value.trim()}, my email is ${emailBox.value.trim()}, and my message is ${msgBox.value.trim()}.`
+    );
 
-// helper – attach only if the element exists
-const safeClick = (el, fn) => el && el.addEventListener('click', fn);
+  const on = (id, url) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', e => {
+      e.preventDefault();
+      window.open(url(),'_blank');
+    });
+  };
 
-safeClick(document.getElementById('waBtn'),  e => {
-  e.preventDefault();
-  window.open(`https://wa.me/${PHONE}?text=${buildText()}`,'_blank');
-});
-
-safeClick(document.getElementById('tgBtn'),  e => {
-  e.preventDefault();
-  window.open(`https://t.me/share/url?url=&text=${buildText()}`,'_blank');
-});
-
-safeClick(document.getElementById('sigBtn'), e => {
-  e.preventDefault();
-  window.open(`https://signal.me/#p/+${PHONE}?text=${buildText()}`,'_blank');
-});
-
-safeClick(document.getElementById('igBtn'),  e => {
-  e.preventDefault();
-  window.open(`https://instagram.com/${IG_USER}`,'_blank');
+  on('waBtn',  () => `https://wa.me/${phone}?text=${text()}`);
+  on('tgBtn',  () => `https://t.me/share/url?url=&text=${text()}`);
+  on('sigBtn', () => `https://signal.me/#p/+${phone}?text=${text()}`);
+  on('igBtn',  () => `https://instagram.com/${igUser}`);
 });

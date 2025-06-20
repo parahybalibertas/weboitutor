@@ -1,231 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<a href="/" class="brand">
-
-</a>
+  <a href="/" class="brand"></a>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OiTutor – One-on-One Lessons</title>
-
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-
   <!-- AOS (scroll animations) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-
   <!-- Your CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <!-- ========= NAV ========= -->
-<header class="nav" data-aos="fade-down">
-  <div class="container nav-inner">
-    <a href="#" class="brand">OiTutor</a>
-    <button id="burger">☰</button>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#content">Method</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<style>
-.nav {
-  background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.brand {
-  color: #ffffff;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.brand:hover {
-  color: #facc15;
-}
-
-#burger {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-}
-
-.nav-links a:hover {
-  background-color: #facc15;
-  color: #1e3a8a;
-}
-
-@media (max-width: 768px) {
-  #burger {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background: #1e3a8a;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 0.75rem;
-    width: 100%;
-  }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.getElementById('burger');
-  const navLinks = document.getElementById('navLinks');
-
-  burger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-
-  // Close mobile menu when a link is clicked
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
+  <header class="nav" data-aos="fade-down">
+    <div class="container nav-inner">
+      <a href="#" class="brand">OiTutor</a>
+      <button id="burger">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#content">Methodology</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <style>
+    .nav {
+      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .brand {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .brand:hover {
+      color: #facc15;
+    }
+    #burger {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+    }
+    .nav-links a:hover {
+      background-color: #facc15;
+      color: #1e3a8a;
+    }
+    @media (max-width: 768px) {
+      #burger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #1e3a8a;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links a {
+        padding: 0.75rem;
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const burger = document.getElementById('burger');
+      const navLinks = document.getElementById('navLinks');
+      burger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
     });
-  });
-});
-</script>
-
+  </script>
   <!-- ========= HERO ========= -->
 <section class="hero">
   <div class="container hero-inner">
-<div class="hero-copy">
-  <h1 data-aos="fade-right">
-    Master English <span class="accent">FASTER</span> with real-world practice.
-  </h1>
-
-  <p class="text-muted" data-aos="fade-right" data-aos-delay="100">
-    Oxford-certified Tutor • Hundreds of presentations coached • Thousands of lessons given • 30+ countries served</p>
-  <p>
-    Learn through live conversation, instant Google-Docs feedback, and
-    personalised action plans.
-  </p>
-
-  <div data-aos="zoom-in" data-aos-delay="200" style="display:flex;gap:1rem;flex-wrap:wrap">
-    <a href="#contact" class="btn">Contact me</a>
-    <a href="#schedule" class="btn btn-outline">See my calendar</a>
-  </div>
-</div>
-
-
+    <div class="hero-copy">
+      <h1 data-aos="fade-right">
+        Master English <span class="accent">FASTER</span> with real-world practice.
+      </h1>
+      <p class="text-muted" data-aos="fade-right" data-aos-delay="100">
+        Oxford-certified Tutor • Hundreds of presentations coached • Thousands of lessons given • 30+ countries served
+      </p>
+      <p>
+        Learn through live conversation, instant Google Docs feedback, and
+        personalised action plans.
+      </p>
+      <div data-aos="zoom-in" data-aos-delay="200" style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="#contact" class="btn">Contact me</a>
+        <a href="#schedule" class="btn btn-outline">See my calendar</a>
+      </div>
+    </div>
     <figure class="hero-img" data-aos="zoom-in">
       <img src="assets/hero.png" alt="Your tutor Wen" />
     </figure>
   </div>
 </section>
-
-<!-- ========= TRUST & EXPERIENCE ========= -->
-<section class="trust-bar">
-  <div class="container cred-grid">
-
-    <!-- certificate & platform badges -->
-    <div class="badge-group">
-      <span class="badge">Oxford OOPT C2</span>
-      <span class="badge">EF SET C2</span>
-      <span class="badge">Polish B1 National Exam</span>
-      <span class="badge">Pushkin Russian Certificate</span>
-      <span class="badge">4+ years as a Medical Interpreter</span>
-      <span class="badge">10+ years of experience as an Online Tutor</span>
-
-
-      <span class="badge badge-ghost">Students in 30+ countries</span>
-      <span class="badge badge-ghost">10,000+ lessons</span>
+  <!-- ========= TRUST & EXPERIENCE ========= -->
+  <section class="trust-bar">
+    <div class="container cred-grid">
+      <div class="badge-group">
+        <span class="badge">Oxford OOPT C2</span>
+        <span class="badge">EF SET C2</span>
+        <span class="badge">Polish B1 National Exam</span>
+        <span class="badge">Pushkin Russian Certificate</span>
+        <span class="badge">4+ years as a Medical Interpreter</span>
+        <span class="badge">10+ years of experience as an Online Tutor</span>
+        <span class="badge badge-ghost">Students in 30+ countries</span>
+        <span class="badge badge-ghost">10,000+ lessons</span>
+      </div>
+      <ul class="exp-list">
+        <li>✔ Coached <strong>Neurosurgeons, Developers, Financial Analysts, and many other professionals</strong> for high-stakes presentations.</li>
+        <li>✔ Delivered <strong>10,000+ online ESL lessons</strong> since 2018.</li>
+        <li>✔ <strong>Medical & Legal interpreter</strong> (HIPAA / PIPEDA compliant) — real-world jargon at your fingertips.</li>
+        <li>✔ Multilingual translator (EN-ES-PT-PL-RU) for <em>Mastering Bitcoin</em> & game localization.</li>
+      </ul>
     </div>
-
-
-    <!-- Snapshot of teaching-relevant experience -->
-    <ul class="exp-list">
-      <li>✔ Coached <strong>neurosurgeons, devs, Financial Analysts, and many other professionals</strong> for high-stakes presentations.</li>
-      <li>✔ Delivered <strong>10,000+ online ESL lessons</strong> since 2018.</li>
-      <li>✔ <strong>Medical & legal interpreter</strong> (HIPAA / PIPEDA compliant) — real-world jargon at your fingertips.</li>
-      <li>✔ Multilingual translator (EN-ES-PT-PL-RU) for <em>Mastering Bitcoin</em> & game localisation.</li>
-    </ul>
-
-  </div>
-</section>
-
-
-<!-- ========= WELCOME VIDEO ========= -->
-<section class="section" id="welcome-video">
-  <div class="container" data-aos="fade-up">
-    <h2 class="section-title">Watch My Welcome Video</h2>
-
-    <!-- language-picker -->
-    <div class="vid-picker">
-      <button data-lang="en" class="active"><img src="assets/flags/us.svg" alt="English"></button>
-      <button data-lang="pt"><img src="assets/flags/br.svg" alt="Português"></button>
-      <button data-lang="es"><img src="assets/flags/es.svg" alt="Español"></button>
-      <button data-lang="pl"><img src="assets/flags/pl.svg" alt="Polski"></button>
-      <button data-lang="ru"><img src="assets/flags/ru.svg" alt="Русский"></button>
-    </div>
-
+  </section>
+  <!-- ========= WELCOME VIDEO ========= -->
+  <section class="section" id="welcome-video">
+    <div class="container" data-aos="fade-up">
+      <h2 class="section-title">Watch My Welcome Video</h2>
+      <div class="vid-picker">
+        <button data-lang="en" class="active"><img src="assets/flags/us.svg" alt="English"></button>
+        <button data-lang="pt"><img src="assets/flags/br.svg" alt="Português"></button>
+        <button data-lang="es"><img src="assets/flags/es.svg" alt="Español"></button>
+        <button data-lang="pl"><img src="assets/flags/pl.svg" alt="Polski"></button>
+        <button data-lang="ru"><img src="assets/flags/ru.svg" alt="Русский"></button>
+      </div>
 <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1094680350?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Intro_video"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-  </div>
-</section>
-
-
-
-
+    </div>
+  </section>
   <!-- ========= CARDS: ABOUT / METHOD / SCHEDULE ========= -->
   <section class="section">
     <div class="container card-grid">
-      <!-- About -->
       <article class="card" id="about" data-aos="fade-up">
         <h3>About Me</h3>
         <p class="text-muted">
@@ -235,10 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
           job interviews, international presentations, and late-night Netflix without subtitles.
         </p>
       </article>
-
-      <!-- Method -->
       <article class="card" id="content" data-aos="fade-up" data-aos-delay="100">
-        <h3>My Method</h3>
+        <h3>My Methodology</h3>
         <ul class="text-muted">
           <li><strong>Goal-first planning</strong> – we map your deadline, then reverse-engineer lessons.</li>
           <li><strong>Active-skill focus</strong> – 70 % of every session is speaking or writing.</li>
@@ -246,28 +199,20 @@ document.addEventListener('DOMContentLoaded', () => {
           <li><strong>Data wins</strong> – fluency scorecards and mock-test analytics keep us honest.</li>
         </ul>
       </article>
-
-      <!-- Schedule -->
       <article class="card" id="schedule" data-aos="fade-up" data-aos-delay="200">
-        <h3>Schedule Lesson</h3>
+        <h3>Schedule Trial Lesson</h3>
         <p class="text-muted">Check my live calendar and lock in a convenient time.</p>
-
-        <!-- Calendly embed -->
         <iframe
           src="https://calendly.com/profwen"
           loading="lazy"></iframe>
       </article>
     </div>
   </section>
-
   <!-- ========= PRICING ========= -->
   <section class="section pricing-section" id="pricing">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">Pricing</h2>
-
       <div class="pricing-grid">
-
-        <!-- Starter -->
         <div class="card price-card" data-aos="flip-left">
           <h3>Starter</h3>
           <p class="price-tag">$25 / hr</p>
@@ -285,8 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
              Choose Plan
           </a>
         </div>
-
-        <!-- Regular -->
         <div class="card price-card" data-aos="flip-left" data-aos-delay="100">
           <h3>Regular</h3>
           <p class="price-tag">$40/w</p>
@@ -304,8 +247,6 @@ document.addEventListener('DOMContentLoaded', () => {
              Choose Plan
           </a>
         </div>
-
-        <!-- Intensive -->
         <div class="card price-card featured" data-aos="flip-left" data-aos-delay="200">
           <h3>Intensive</h3>
           <p class="price-tag">$55/w</p>
@@ -323,97 +264,80 @@ document.addEventListener('DOMContentLoaded', () => {
              Choose Plan
           </a>
         </div>
-
-        </div>
-
       </div>
     </div>
   </section>
-
   <!-- ========= TESTIMONIALS ========= -->
-
-<section class="section testimonials" id="success-stories">
-  <div class="container">
-    <h2 class="section-title" data-aos="fade-up">Students' Feedback</h2>
-    <div id="testiWrap" class="testi-grid"></div>
-    <div style="text-align:center;margin-top:1rem;">
-
-  <script>
-    const data = [
-      { n:'Anastasia', c:'Russia', p:'Physicist', t:'“I acquired the presentation skills needed to defend my research at an international symposium!”' },
-      { n:'Ekaterina', c:'Russia', p:'Business Manager', t:'“Closed a very nice supply deal after our negotiation role-plays.”' },
-      { n:'Olga', c:'Ukraine', p:'Financial Analyst', t:'“Delivered flawless English briefings to C-suite at my company.”' },
-      { n:'Eduardo', c:'Brazil', p:'Programmer', t:'“Presented my game-engine roadmap to a US publisher with confidence.”' },
-      { n:'Miguel', c:'Brazil', p:'Programmer', t:'“Improved code-review discussions and got promoted to team lead.”' },
-      { n:'Oleg', c:'Ukraine', p:'Programmer', t:'“Nailed a live demo at an Amsterdam tech conference.”' },
-      { n:'Alena', c:'Belarus', p:'Programmer', t:'“Passed IELTS 8.0 and relocated to Canada as a developer.”' },
-      { n:'Viktoria', c:'Belarus', p:'Marketing Specialist', t:'“Boosted campaign pitches; now I manage EU accounts too.”' },
-      { n:'Natalia', c:'Brazil', p:'Prosecutor', t:'“Argued a mock case in English ahead of my US exchange programme.”' },
-      { n:'Ricardo', c:'Brazil', p:'Prosecutor', t:'“Scored 105 on TOEFL and secured a scholarship.”' },
-      { n:'Maria', c:'Poland', p:'Engineer', t:'“Mastered technical English for my project presentations.”' },
-      { n:'Ivan', c:'Russia', p:'Doctor', t:'“Improved patient communication skills in English.”' }
-    ];
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const wrap = document.getElementById('testiWrap');
-      const btn = document.getElementById('nextTesti');
-      if (!wrap) return;
-
-      let pos = 0;
-      const render = () => {
-        wrap.innerHTML = '';
-        for (let i = 0; i < 3; i++) {
-          const d = data[(pos + i) % data.length];
-          wrap.insertAdjacentHTML(
-            'beforeend',
-            `<blockquote class="card testimonial">
-               <p>${d.t}</p>
-               <cite>— ${d.n}, ${d.c} · ${d.p}</cite>
-             </blockquote>`
-          );
-        }
-        pos = (pos + 3) % data.length;
-      };
-
-      // Automatic rotation every 3 seconds
-      setInterval(render, 5000);
-
-      // Initial render
-      render();
-    });
-  </script>
-</section>
-
+  <section class="section testimonials" id="success-stories">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Students' Feedback</h2>
+      <div id="testiWrap" class="testi-grid"></div>
+      <div style="text-align:center;margin-top:1rem;">
+        <script>
+          const data = [
+            { n:'Anastasia', c:'Russia', p:'Physicist', t:'“I acquired the presentation skills needed to defend my research at an international symposium!”' },
+            { n:'Ekaterina', c:'Russia', p:'Business Manager', t:'“Closed a very nice supply deal after our negotiation role-plays.”' },
+            { n:'Olga', c:'Ukraine', p:'Financial Analyst', t:'“Delivered flawless English briefings to C-suite at my company.”' },
+            { n:'Eduardo', c:'Brazil', p:'Programmer', t:'“Presented my game-engine roadmap to a US publisher with confidence.”' },
+            { n:'Miguel', c:'Brazil', p:'Programmer', t:'“Improved code-review discussions and got promoted to team lead.”' },
+            { n:'Oleg', c:'Ukraine', p:'Programmer', t:'“Nailed a live demo at an Amsterdam tech conference.”' },
+            { n:'Alena', c:'Belarus', p:'Programmer', t:'“Passed IELTS 8.0 and relocated to Canada as a developer.”' },
+            { n:'Viktoria', c:'Belarus', p:'Marketing Specialist', t:'“Boosted campaign pitches; now I manage EU accounts too.”' },
+            { n:'Natalia', c:'Brazil', p:'Prosecutor', t:'“Argued a mock case in English ahead of my US exchange programme.”' },
+            { n:'Ricardo', c:'Brazil', p:'Prosecutor', t:'“Scored 105 on TOEFL and secured a scholarship.”' },
+            { n:'Maria', c:'Poland', p:'Engineer', t:'“Mastered technical English for my project presentations.”' },
+            { n:'Ivan', c:'Russia', p:'Doctor', t:'“Improved patient communication skills in English.”' }
+          ];
+          document.addEventListener('DOMContentLoaded', () => {
+            const wrap = document.getElementById('testiWrap');
+            const btn = document.getElementById('nextTesti');
+            if (!wrap) return;
+            let pos = 0;
+            const render = () => {
+              wrap.innerHTML = '';
+              for (let i = 0; i < 3; i++) {
+                const d = data[(pos + i) % data.length];
+                wrap.insertAdjacentHTML(
+                  'beforeend',
+                  `<blockquote class="card testimonial">
+                     <p>${d.t}</p>
+                     <cite>— ${d.n}, ${d.c} · ${d.p}</cite>
+                   </blockquote>`
+                );
+              }
+              pos = (pos + 3) % data.length;
+            };
+            setInterval(render, 5000);
+            render();
+          });
+        </script>
+      </div>
+    </div>
+  </section>
   <!-- ========= FAQ ========= -->
   <section class="section">
     <div class="container">
       <h2 class="section-title" data-aos="fade-up">FAQ</h2>
-
       <details data-aos="fade-up">
         <summary>How do online lessons work?</summary>
         <p style="margin-top:.5rem;">
           We meet on Zoom or Google Meet. I share materials during class through Google Docs; you'll have your own folder with all corrections so you can review whenever you like, and I send follow-up notes afterwards.
         </p>
       </details>
-
       <details data-aos="fade-up" data-aos-delay="100">
         <summary>Can I reschedule a lesson?</summary>
         <p style="margin-top:.5rem;">Yes — just give me 24 hours’ notice and we’ll move it.</p>
       </details>
-
       <details data-aos="fade-up" data-aos-delay="200">
         <summary>Do you teach beginners?</summary>
         <p style="margin-top:.5rem;">Absolutely! I have structured courses for CEFR A1–C2 levels.</p>
       </details>
-
-      <!-- New FAQs -->
       <details data-aos="fade-up" data-aos-delay="300">
         <summary>How fast will I improve?</summary>
         <p style="margin-top:.5rem;">
           Most students move <strong>½ CEFR level every 6–8 weeks</strong> on Starter and a full level on Regular or Intensive—provided you do the homework.
         </p>
       </details>
-
       <details data-aos="fade-up" data-aos-delay="400">
         <summary>Do you guarantee exam scores?</summary>
         <p style="margin-top:.5rem;">
@@ -421,7 +345,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <strong>I refund the last two lessons</strong>.
         </p>
       </details>
-
       <details data-aos="fade-up" data-aos-delay="500">
         <summary>What tech do we need?</summary>
         <p style="margin-top:.5rem;">
@@ -431,70 +354,102 @@ document.addEventListener('DOMContentLoaded', () => {
       </details>
     </div>
   </section>
-
   <!-- ========= CONTACT ========= -->
   <section class="section contact-section" id="contact">
     <div class="container contact-grid">
       <div data-aos="fade-right">
         <h2>Get in Touch</h2>
         <p class="text-muted">Questions before booking? Send me a message.</p>
-
         <form class="contact-form" id="contactForm">
-          <input id="nameField"  type="text"  placeholder="Name"  required />
+          <input id="nameField" type="text" placeholder="Name" required />
           <input id="emailField" type="email" placeholder="Email" required />
           <textarea id="msgField" rows="4" placeholder="Message" required></textarea>
-
           <div class="contact-buttons">
-            <a id="waBtn"  class="btn" href="#">WhatsApp</a>
-            <a id="tgBtn"  class="btn" href="#">Telegram</a>
+            <a id="waBtn" class="btn" href="#">WhatsApp</a>
+            <a id="tgBtn" class="btn" href="#">Telegram</a>
             <a id="sigBtn" class="btn" href="#">Signal</a>
             <a id="igBtn" class="btn" href="#">Instagram</a>
           </div>
         </form>
       </div>
-
       <figure data-aos="fade-left">
         <img src="assets/contact.png" alt="Contact illustration" />
       </figure>
     </div>
   </section>
-
   <!-- ========= ROADMAP ========= -->
-  <section class="section" id="lead-magnet" style="background:var(--clr-card);">
-  <div class="container" style="text-align:center;max-width:620px;">
-    <h2>Free English Grammar Tips</h2>
-    <p class="text-muted">Receive grammar tips every day in order to develop your English entirely on your own.</p>
-    <form action="https://YOUR_MAILER_URL" method="post" style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;">
-      <input name="email" type="email" placeholder="Your email" required
-             style="flex:1 1 250px;padding:.75rem;border:1px solid var(--clr-muted);border-radius:8px;">
-      <button class="btn" type="submit">Get FREE TIPS!</button>
-    </form>
-  </div>
-</section>
-
+  <!-- =========   <section class="section" id="lead-magnet" style="background:var(--clr-card);">
+    <div class="container" style="text-align:center;max-width:620px;">
+      <h2>Free English Grammar Tips</h2>
+      <p class="text-muted">Receive grammar tips every day in order to develop your English entirely on your own.</p>
+      <form action="https://YOUR_MAILER_URL" method="post" style="display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;">
+        <input name="email" type="email" placeholder="Your email" required
+               style="flex:1 1 250px;padding:.75rem;border:1px solid var(--clr-muted);border-radius:8px;">
+        <button class="btn" type="submit">Get FREE TIPS!</button>
+      </form>
+    </div>
+  </section> ========= -->
   <!-- ========= FOOTER ========= -->
-<footer class="site-footer">
-<footer>
-  <div class="container">
-    <img src="assets/oi_tutor_logo_blue.png" alt="OiTutor Logo" width="200">
-    <p>© 2025 OiTutor. All rights reserved.</p>
-  </div>
-</footer>
-
+  <footer class="site-footer">
+    <div class="container">
+      <img src="assets/oi_tutor_logo_blue.png" alt="OiTutor Logo" width="200">
+      <p>© 2025 OiTutor. All rights reserved.</p>
+    </div>
     <nav>
       <a href="/store.html">Store</a>
       <a href="#contact">Contact</a>
-      <a href="/privacy.html">Privacy&nbsp;Policy</a>
+      <a href="/privacy.html">Privacy Policy</a>
     </nav>
-
-  </div>
-</footer>
-
-
+  </footer>
   <!-- Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
   <!-- Your JS -->
-  <script src="js/main.js"></script>
+<script src="js/main.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* ---------- autofill & scroll ---------- */
+  const msgBox   = document.getElementById('msgField');
+  const contact  = document.getElementById('contact');
+
+  document.querySelectorAll('.choose-plan').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      msgBox.value = btn.dataset.msg || '';
+      contact.scrollIntoView({behavior:'smooth'});
+      msgBox.focus({preventScroll:true});
+    });
+  });
+
+  /* ---------- messenger buttons ---------- */
+  const nameBox  = document.getElementById('nameField');
+  const mailBox  = document.getElementById('emailField');
+
+  const phone  = '48788542112';     // digits only
+  const igUser = 'oitutor_wen';
+
+  const fullText = () =>
+    encodeURIComponent(
+      `Hi, my name is ${nameBox.value.trim()}, my email is ${mailBox.value.trim()}, and my message is ${msgBox.value.trim()}.`
+    );
+
+  const link = (id, urlFn) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', e => {
+      e.preventDefault();
+      window.open(urlFn(), '_blank');
+    });
+  };
+
+  link('waBtn',  () => `https://wa.me/${phone}?text=${fullText()}`);
+  link('tgBtn',  () => `https://t.me/prof_wen?text=${fullText()}`);
+  link('sigBtn', () => `https://signal.me/#p/+${phone}?text=${fullText()}`);
+  link('igBtn',  () => `https://instagram.com/${igUser}`);
+
+});
+</script>
+
+
 </body>
 </html>
