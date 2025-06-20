@@ -424,3 +424,18 @@ nav ul li {
   .cred-grid { flex-direction: column; align-items: flex-start; }
   .exp-list { max-width: none; margin-top: 1rem; }
 }
+
+/* ----------  Footer mobile centring fix  ---------- */
+@media (max-width: 640px){
+  .footer-grid{
+    flex-direction: column;          /* stack logo, nav, icons */
+    align-items: center;             /* horizontal centre */
+    text-align: center;              /* centre paragraphs & links */
+    gap: 1.25rem;                    /* breathing room */
+  }
+  .footer-grid nav,
+  .footer-grid .social{
+    flex-direction: row;             /* keep links/icons in a line */
+    justify-content: center;
+  }
+}
