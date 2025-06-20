@@ -1,75 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>OiTutor – Store</title>
-<link rel="stylesheet" href="css/style.css">
+  <!-- ===== same HEAD block you requested ===== -->
+  <a href="/" class="brand"></a>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OiTutor – Store</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- AOS (scroll animations) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+  <!-- Main site CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-<header class="nav">
-  <div class="container nav-inner">
-    <a href="/" class="brand">OiTutor</a>
-    <nav class="nav-links">
-      <a href="/">Home</a>
-      <a href="/store.html" class="active">Store</a>
-    </nav>
-  </div>
-</header>
+  <!-- ========= NAV ========= -->
+  <header class="nav" data-aos="fade-down">
+    <div class="container nav-inner">
+      <a href="/" class="brand">OiTutor</a>
+      <button id="burger">☰</button>
 
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Courses & Materials</h2>
-
-    <div class="pricing-grid">
-
-      <!-- Demo self-study course -->
-      <div class="card price-card" data-aos="flip-left">
-        <h3>Demo ESL Course</h3>
-        <p class="price-tag">$29.99</p>
-        <ul class="feat-list">
-          <li>5 HD video units</li>
-          <li>Printable worksheets</li>
-          <li>Email support</li>
-        </ul>
-        <a class="btn" href="#">Buy now  🔒</a>
-      </div>
-
-      <!-- Lesson bundles for teachers -->
-      <div class="card price-card" data-aos="flip-left" data-aos-delay="100">
-        <h3>10-Lesson Pack</h3>
-        <p class="price-tag">$10</p>
-        <p class="plan-blurb">$1 per lesson PDF / slide deck.</p>
-        <a class="btn" href="#">Buy now</a>
-      </div>
-
-      <div class="card price-card" data-aos="flip-left" data-aos-delay="200">
-        <h3>20-Lesson Pack</h3>
-        <p class="price-tag">$20</p>
-        <p class="plan-blurb">Save 5 % vs single pack.</p>
-        <a class="btn" href="#">Buy now</a>
-      </div>
-
-      <div class="card price-card" data-aos="flip-left" data-aos-delay="300">
-        <h3>50-Lesson Pack</h3>
-        <p class="price-tag">$50</p>
-        <p class="plan-blurb">Save 10 %.</p>
-        <a class="btn" href="#">Buy now</a>
-      </div>
-
-      <div class="card price-card" data-aos="flip-left" data-aos-delay="400">
-        <h3>100-Lesson Pack</h3>
-        <p class="price-tag">$100</p>
-        <p class="plan-blurb">Best value – save 15 %.</p>
-        <a class="btn" href="#">Buy now</a>
-      </div>
-
+      <nav class="nav-links" id="navLinks">
+        <a href="/#about">About</a>
+        <a href="/#content">Methodology</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#schedule">Schedule</a>
+        <a href="/#contact">Contact</a>
+        <a href="/store.html" class="active">Store</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<footer>
-  © <span id="curYear"></span> OiTutor. All rights reserved.
-</footer>
-<script>document.getElementById('curYear').textContent = new Date().getFullYear();</script>
+  <!-- inline menu CSS + burger JS (from your snippet) -->
+  <style>
+    .nav {
+      background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+      padding: 1rem 0;
+      position: sticky; top: 0; z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,.1);
+    }
+    .nav-inner{display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;padding:0 20px;}
+    .brand{color:#fff;font-size:1.5rem;font-weight:700;text-decoration:none;transition:color .3s}
+    .brand:hover{color:#facc15}
+    #burger{display:none;font-size:1.5rem;background:none;border:none;color:#fff;cursor:pointer}
+    .nav-links{display:flex;align-items:center;gap:2rem;}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;padding:.5rem 1rem;transition:.3s;border-radius:5px;}
+    .nav-links a:hover{background:#facc15;color:#1e3a8a;}
+    @media(max-width:768px){
+      #burger{display:block}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:#1e3a8a;padding:1rem;text-align:center;box-shadow:0 4px 6px rgba(0,0,0,.1);}
+      .nav-links.active{display:flex}
+      .nav-links a{padding:.75rem;width:100%}
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const burger  = document.getElementById('burger');
+      const nav     = document.getElementById('navLinks');
+      burger.addEventListener('click', () => nav.classList.toggle('active'));
+      nav.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', ()=> nav.classList.remove('active'))
+      );
+    });
+  </script>
+
+  <!-- ========= STORE CONTENT ========= -->
+  <main class="section" id="store">
+    <div class="container">
+      <h1 class="section-title" data-aos="fade-up">Courses&nbsp;&amp;&nbsp;Lesson Packs (for Tutors and Self-learners)</h1>
+
+      <div class="pricing-grid">
+
+        <!-- Demo self-study course -->
+        <div class="card price-card" data-aos="flip-left">
+          <h3>Demo ESL Course</h3>
+          <p class="price-tag">$29.99</p>
+          <ul class="feat-list">
+            <li>5 HD video units</li>
+            <li>Printable worksheets</li>
+            <li>Email support</li>
+          </ul>
+          <a class="btn" href="#">Buy&nbsp;Now 🔒</a>
+        </div>
+
+        <!-- 10-lesson pack -->
+        <div class="card price-card" data-aos="flip-left" data-aos-delay="100">
+          <h3>10-Lesson Pack</h3>
+          <p class="price-tag">$10</p>
+          <p class="plan-blurb">$1 per lesson PDF / slide deck.</p>
+          <a class="btn" href="#">Buy&nbsp;Now</a>
+        </div>
+
+        <!-- 20-lesson pack -->
+        <div class="card price-card" data-aos="flip-left" data-aos-delay="200">
+          <h3>20-Lesson Pack</h3>
+          <p class="price-tag">$20</p>
+          <p class="plan-blurb">Save 5 % vs single pack.</p>
+          <a class="btn" href="#">Buy&nbsp;Now</a>
+        </div>
+
+        <!-- 50-lesson pack -->
+        <div class="card price-card" data-aos="flip-left" data-aos-delay="300">
+          <h3>50-Lesson Pack</h3>
+          <p class="price-tag">$50</p>
+          <p class="plan-blurb">Save 10 % overall.</p>
+          <a class="btn" href="#">Buy&nbsp;Now</a>
+        </div>
+
+        <!-- 100-lesson pack -->
+        <div class="card price-card" data-aos="flip-left" data-aos-delay="400">
+          <h3>100-Lesson Pack</h3>
+          <p class="price-tag">$100</p>
+          <p class="plan-blurb">Best value – save 15 %.</p>
+          <a class="btn" href="#">Buy&nbsp;Now</a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/oi_tutor_logo_blue.png" alt="OiTutor logo" style="height:28px;width:auto;">
+        <p class="text-muted" style="max-width:260px;margin-top:.75rem;">
+          © <span id="curYear"></span> OiTutor. All rights reserved.
+        </p>
+      </div>
+
+      <nav>
+        <a href="/store.html" class="active">Store</a>
+        <a href="/#contact">Contact</a>
+        <a href="/privacy.html">Privacy&nbsp;Policy</a>
+      </nav>
+
+      <div class="social">
+        <a href="https://linkedin.com/in/yourprofile" aria-label="LinkedIn">
+          <img src="assets/icon-linkedin.svg" alt="">
+        </a>
+        <a href="https://instagram.com/oitutor_wen" aria-label="Instagram">
+          <img src="assets/icon-ig.svg" alt="">
+        </a>
+        <a href="https://youtube.com/yourchannel" aria-label="YouTube">
+          <img src="assets/icon-yt.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Site-wide JS -->
+  <script src="js/main.js" defer></script>
 </body>
 </html>
